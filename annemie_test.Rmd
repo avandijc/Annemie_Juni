@@ -1,0 +1,28 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Import proc
+to import the data
+```{r}
+library(haven)
+orange <- read_sas("http://www.principlesofeconometrics.com/sas/orange.sas7bdat", 
+    NULL)
+View(orange)
+```
+
+
+data wrangle
+cleaning up the data
+& data viz
+
+```{r}
+library(tidyverse)
+ggplot(orange) +
+ aes(x = PRICE, y = QUANT, colour = YEAR) +
+ geom_point(size = 1L) +
+ scale_color_gradient() +
+ theme_minimal()
+```
+
