@@ -19,7 +19,9 @@ cleaning up the data
 
 ```{r}
 library(tidyverse)
-ggplot(orange) +
+orange %>% 
+  filter(YEAR < 2018) %>% 
+ggplot +
  aes(x = PRICE, y = QUANT, colour = YEAR) +
  geom_point(size = 1L) +
  scale_color_gradient() +
